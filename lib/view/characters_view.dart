@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -35,13 +36,10 @@ class _HomePageState extends State<HomePage> {
       body: ListView.builder(
         itemCount: character.results.length,
         itemBuilder: (BuildContext context, int index) {
-          return Column(
-            children: [
-              Text(character.results[index].name),
-              Text(character.results[index].status),
-              Text(character.results[index].gender),
-              Image.network(character.results[index].image),
-            ],
+          return ListTile(
+            leading: Image.network(character.results[index].image),
+            title: Text(character.results[index].name),
+            subtitle: Text(character.results[index].species),
           );
         },
       ),
