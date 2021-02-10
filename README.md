@@ -2,6 +2,8 @@
 
 A new Flutter project.
 
+![Rick And Morty](characters.gif)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
