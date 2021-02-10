@@ -35,9 +35,13 @@ class _HomePageState extends State<HomePage> {
       body: ListView.builder(
         itemCount: character.results.length,
         itemBuilder: (BuildContext context, int index) {
-          return Container(
-            height: 50,
-            child: Text(character.results[index].name),
+          return Column(
+            children: [
+              Text(character.results[index].name),
+              Text(character.results[index].status),
+              Text(character.results[index].gender),
+              Image.network(character.results[index].image),
+            ],
           );
         },
       ),
