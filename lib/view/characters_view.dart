@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -37,7 +36,10 @@ class _HomePageState extends State<HomePage> {
         itemCount: character.results.length,
         itemBuilder: (BuildContext context, int index) {
           return ListTile(
-            leading: Image.network(character.results[index].image),
+            leading: ClipRRect(
+              borderRadius: BorderRadius.circular(50),
+              child: Image.network(character.results[index].image),
+            ),
             title: Text(character.results[index].name),
             subtitle: Text(character.results[index].species),
           );
