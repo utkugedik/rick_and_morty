@@ -51,6 +51,43 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
+            Flexible(
+              flex: 1,
+              child: Card(
+                clipBehavior: Clip.antiAlias,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
+                    Ink.image(
+                      image: NetworkImage(
+                          'http://tr.web.img3.acsta.net/newsv7/20/11/16/08/38/3745412.jpg'),
+                      height: 240,
+                      fit: BoxFit.cover,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CharacterPage(),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    Text(
+                      'LOCATIONS',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 40),
+                    )
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
