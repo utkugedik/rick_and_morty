@@ -88,6 +88,43 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
+            Flexible(
+              flex: 1,
+              child: Card(
+                clipBehavior: Clip.antiAlias,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
+                    Ink.image(
+                      image: NetworkImage(
+                          'https://static.onecms.io/wp-content/uploads/sites/6/2019/11/rick-and-morty-season-4-2000.jpg'),
+                      height: 240,
+                      fit: BoxFit.cover,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CharacterPage(),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    Text(
+                      'EPISODES',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 40),
+                    )
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
