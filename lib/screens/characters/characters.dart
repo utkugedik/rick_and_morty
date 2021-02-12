@@ -3,15 +3,16 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:rick_and_morty/models/characters.dart';
+import 'package:rick_and_morty/screens/characters/character_detail.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+class CharacterPage extends StatefulWidget {
+  CharacterPage({Key key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _CharacterPageState createState() => _CharacterPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _CharacterPageState extends State<CharacterPage> {
   String url = 'https://rickandmortyapi.com/api/character/';
   Character character;
 
@@ -32,6 +33,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: ListView.builder(
         itemCount: character.results.length,
         itemBuilder: (BuildContext context, int index) {
@@ -42,6 +44,16 @@ class _HomePageState extends State<HomePage> {
             ),
             title: Text(character.results[index].name),
             subtitle: Text(character.results[index].species),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CharacterDetail(
+                    results: character.results[index],
+                  ),
+                ),
+              );
+            },
           );
         },
       ),
